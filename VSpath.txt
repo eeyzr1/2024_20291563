@@ -1,0 +1,1 @@
+"D:\VS\VC\Auxiliary\Build\vcvarsall.bat" x64
