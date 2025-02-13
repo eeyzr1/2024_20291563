@@ -1,1 +1,1 @@
-"Read this very carfully"
+"Read this carefully"
