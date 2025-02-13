@@ -1,1 +1,1 @@
-Restart
+"Read this very carfully"
