@@ -1,0 +1,27 @@
+name: Doxygen Deployment
+
+on:
+  push:
+    branches:
+      - master  # 如果你的默认分支是 main，改成 main
+
+jobs:
+  deploy-worksheet5:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Doxygen
+      run: sudo apt-get install -y doxygen
+
+    - name: Run Doxygen
+      working-directory: ${{ github.workspace }}/Worksheet5
+      run: doxygen
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages   # 目标分支
+        folder: ${{ github.workspace }}/Worksheet5/html  # Doxygen 生成的 HTML 目录
