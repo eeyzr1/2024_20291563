@@ -18,10 +18,24 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QTreeView" name="treeView"/>
+       <widget class="QTreeView" name="treeView">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget" native="true"/>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -30,7 +44,7 @@
       <item>
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>PushButton1</string>
+         <string>PushButton</string>
         </property>
        </widget>
       </item>
@@ -74,17 +88,33 @@
  <connections>
   <connection>
    <sender>pushButton</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>widget</receiver>
-   <slot>close()</slot>
+   <slot>showMaximized()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>62</x>
-     <y>549</y>
+     <x>156</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
-     <x>782</x>
+     <x>531</x>
      <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>raise()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
