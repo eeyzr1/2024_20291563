@@ -38,3 +38,31 @@ jobs:
           branch: gh-pages
           # The folder the action should deploy
           folder: ${{ github.workspace }}/worksheet5/html
+
+name: Doxygen Deployment
+
+on:
+  push:
+    branches:
+      - master  
+
+jobs:
+  deploy-worksheet5:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Doxygen
+      run: sudo apt-get install -y doxygen
+
+    - name: Run Doxygen
+      working-directory: ${{ github.workspace }}/Worksheet5
+      run: doxygen
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages   # aim branch
+        folder: ${{ github.workspace }}/Worksheet5/html  # html by Doxygen
