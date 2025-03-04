@@ -3,6 +3,7 @@
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include <QMessageBox>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -33,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handleButton);
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton);
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
+    // Connect the action signal to the slot
+    connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::on_actionOpenFile_triggered);
 
 }
 
@@ -64,6 +67,15 @@ void MainWindow::handleTreeClicked(const QModelIndex &index) {
 }
 
 
-void MainWindow::on_actionOpenFile_triggered() {
-    emit statusUpdateMessage(QString("Open File action triggered"), 0);//WS6 Ex6 after menu bar and tool bar
+void MainWindow::on_actionOpenFile_triggered() {//WS6 Ex8
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        tr("Open File"),
+        "C:\\Users\\Zhixing\\2024_20291563\\worksheet6",//it is used\\ instead of \ here.
+        tr("STL Files (*.stl);;Text Files (*.txt)")
+        );
+    emit statusUpdateMessage(QString("selected file for ex8"),0);//just for ex8
+    if (!fileName.isEmpty()) {
+        emit statusUpdateMessage(QString("Selected file: ") + fileName, 5000); // show filename with 5000ms
+    }
 }
