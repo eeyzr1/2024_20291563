@@ -1,0 +1,8 @@
+D:\AFirst\First\Study\School\Undergraduate\Notti\2425\WS7\openvr-master
+OpenVR_DIR
+
+D:\AFirst\First\Study\School\Undergraduate\Notti\2425\WS7\openvr-master\lib\win64\openvr_api.lib
+OpenVR_LIBRARY
+
+D:\AFirst\First\Study\School\Undergraduate\Notti\2425\WS7\openvr-master\headers
+OpenVR_INCLUDE_DIR
