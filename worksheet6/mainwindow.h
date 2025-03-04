@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ModelPart.h"
+#include "ModelPartList.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,5 +27,8 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+
+private:
+    ModelPartList* partList;//add for declare a pointer to partlist.
 };
 #endif // MAINWINDOW_H
