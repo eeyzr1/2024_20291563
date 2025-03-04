@@ -1,4 +1,7 @@
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "ModelPart.h"
+#include "ModelPartList.h"
 
 #include <QApplication>
 
