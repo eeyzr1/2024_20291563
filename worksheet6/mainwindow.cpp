@@ -60,7 +60,7 @@ void MainWindow::handleTreeClicked(const QModelIndex &index) {
     // Retrieve the name string from the internal QVariant data array
     QString text = selectedPart->data(0).toString();
     // Emit a status update message
-    emit statusUpdateMessage(QString("The selected item is: ") + text, 300);
+    emit statusUpdateMessage(QString("The selected item is: ") + text, 0);
 }
 
 
