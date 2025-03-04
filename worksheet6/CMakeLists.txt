@@ -21,12 +21,18 @@ set(PROJECT_SOURCES
         ModelPart.h
         ModelPartList.cpp
         ModelPartList.h
+        optiondialog.cpp
+        optiondialog.h
+        optiondialog.ui
+        icons.qrc#what will happen if I include qrc here and delet the if?
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(WS6
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        icons.qrc
+        optiondialog.h optiondialog.cpp optiondialog.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET WS6 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
