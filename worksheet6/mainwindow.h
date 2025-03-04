@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "ModelPart.h"
 #include "ModelPartList.h"
+#include "Optiondialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,8 +20,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
+public slots://for pushbutton1
     void handleButton();
+
+public slots://for pushbutton2Ex9
+    void handleOptionDialog();
 
 public slots:
     void handleTreeClicked(const QModelIndex &index);//Ex5 for tree click

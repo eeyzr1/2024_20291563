@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "ModelPart.h"
 #include "ModelPartList.h"
+#include "optiondialog.h"
 #include <QMessageBox>
 #include <QFileDialog>
 
@@ -32,7 +33,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handleButton);
-    connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton);
+    // Connect the second push button to the handleOptionDialog slot
+    connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleOptionDialog);
+    //connect statusbar with message
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
     // Connect the action signal to the slot
     connect(ui->actionOpen_File, &QAction::triggered, this, &MainWindow::on_actionOpenFile_triggered);
@@ -77,5 +80,16 @@ void MainWindow::on_actionOpenFile_triggered() {//WS6 Ex8
     emit statusUpdateMessage(QString("selected file for ex8"),0);//just for ex8
     if (!fileName.isEmpty()) {
         emit statusUpdateMessage(QString("Selected file: ") + fileName, 5000); // show filename with 5000ms
+    }
+}
+
+void MainWindow::handleOptionDialog() {//WS6 Ex9
+    OptionDialog dialog(this);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        QString inputText = dialog.getInputText();
+        emit statusUpdateMessage(QString("Dialog accepted. Input: ") + inputText, 5000);
+    } else {
+        emit statusUpdateMessage(QString("Dialog rejected"), 5000);
     }
 }
