@@ -1,1 +1,2 @@
 "D:\VS\VC\Auxiliary\Build\vcvarsall.bat" x64
+git log --graph --oneline --all

@@ -22,6 +22,9 @@ public:
 public slots:
     void handleButton();
 
+public slots:
+    void handleTreeClicked(const QModelIndex &index);//Ex5 for tree click
+
 signals:
     void statusUpdateMessage(const QString &message, int timeout);
 

@@ -27,10 +27,13 @@ MainWindow::MainWindow(QWidget *parent)
             childItem->appendChild(childChildItem);
         }
     }
+    // Connect the tree view click signal to the slot
+    connect(ui->treeView, &QTreeView::clicked, this, &MainWindow::handleTreeClicked);
 
     connect(ui->pushButton, &QPushButton::released, this, &MainWindow::handleButton);
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton);
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
+
 
 }
 
@@ -46,8 +49,17 @@ void MainWindow::handleButton() {
     msgBox.exec();
 
 }*/
+
 void MainWindow::handleButton() {
     // This causes MainWindow to emit the signal that will then be
     // received by the status bar’s slot
     emit statusUpdateMessage(QString("Add button was clicked"), 500);//emit the message after each release and close by 500ms
+}
+void MainWindow::handleTreeClicked(const QModelIndex &index) {
+    // Get a pointer to the item from the index
+    ModelPart* selectedPart = static_cast<ModelPart*>(index.internalPointer());
+    // Retrieve the name string from the internal QVariant data array
+    QString text = selectedPart->data(0).toString();
+    // Emit a status update message
+    emit statusUpdateMessage(QString("The selected item is: ") + text, 300);
 }
