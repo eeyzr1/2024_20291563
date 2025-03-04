@@ -34,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_2, &QPushButton::released, this, &MainWindow::handleButton);
     connect(this, &MainWindow::statusUpdateMessage, ui->statusbar, &QStatusBar::showMessage);
 
-
 }
 
 MainWindow::~MainWindow()
@@ -62,4 +61,9 @@ void MainWindow::handleTreeClicked(const QModelIndex &index) {
     QString text = selectedPart->data(0).toString();
     // Emit a status update message
     emit statusUpdateMessage(QString("The selected item is: ") + text, 300);
+}
+
+
+void MainWindow::on_actionOpenFile_triggered() {
+    emit statusUpdateMessage(QString("Open File action triggered"), 0);//WS6 Ex6 after menu bar and tool bar
 }

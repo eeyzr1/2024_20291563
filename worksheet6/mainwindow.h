@@ -25,6 +25,9 @@ public slots:
 public slots:
     void handleTreeClicked(const QModelIndex &index);//Ex5 for tree click
 
+public slots://Ex6 for open file
+    void on_actionOpenFile_triggered();
+
 signals:
     void statusUpdateMessage(const QString &message, int timeout);
 
