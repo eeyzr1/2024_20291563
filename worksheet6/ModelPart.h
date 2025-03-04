@@ -106,10 +106,11 @@ public:
       */
     void setVisible(bool isVisible);
 
+
     /** Get visible flag
       * @return visible flag as boolean 
       */
-    bool visible();
+    bool visible() const;
 	
 	/** Load STL file
       * @param fileName
@@ -134,8 +135,13 @@ private:
     /* These are some typical properties that I think the part will need, you might
      * want to add you own.
      */
-    bool                                        isVisible;          /**< True/false to indicate if should be visible in model rendering */
-	
+    bool                                        isVisible = true;          /**< True/false to indicate if should be visible in model rendering */
+    //For colour selection
+    unsigned char colourR = 255; // Default Red
+    unsigned char colourG = 255; // Default Green
+    unsigned char colourB = 255; // Default Blue
+
+
 	/* These are vtk properties that will be used to load/render a model of this part,
 	 * commented out for now but will be used later
 	 */

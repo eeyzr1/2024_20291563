@@ -26,6 +26,15 @@ public slots://for pushbutton1
 public slots://for pushbutton2Ex9
     void handleOptionDialog();
 
+public slots://Ex10
+    void on_actionItemOptions_triggered();
+
+public slots:
+    void saveTreeToFile(const QString &filePath);  // Declare the function
+
+public slots:
+    void handleSaveButton(); // Intermediate slot
+
 public slots:
     void handleTreeClicked(const QModelIndex &index);//Ex5 for tree click
 
@@ -40,5 +49,6 @@ private:
 
 private:
     ModelPartList* partList;//add for declare a pointer to partlist.
+
 };
 #endif // MAINWINDOW_H

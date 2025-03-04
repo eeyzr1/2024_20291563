@@ -21,6 +21,9 @@ set(PROJECT_SOURCES
         ModelPart.h
         ModelPartList.cpp
         ModelPartList.h
+        optiondialog.cpp
+        optiondialog.h
+        optiondialog.ui
         icons.qrc#what will happen if I include qrc here and delet the if?
 )
 

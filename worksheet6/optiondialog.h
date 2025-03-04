@@ -16,6 +16,19 @@ public:
     ~OptionDialog();
     QString getInputText() const;
 
+public:
+    void setInputText(const QString &text);
+
+public:
+    bool isItemVisible() const;
+    void setItemVisible(bool visible);
+
+public:
+    void setRGB(int R, int G, int B);
+    int getR();
+    int getG();
+    int getB();
+
 private:
     Ui::OptionDialog *ui;
 };

@@ -51,6 +51,9 @@ public:
       */
     QVariant data( const QModelIndex& index, int role ) const;
 
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+
+
     /** Standard function used by Qt internally.
       * @param index in a stucture Qt uses to specify the row and column it wants data for
       * @return a Qt item flags
