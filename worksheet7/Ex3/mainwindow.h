@@ -5,6 +5,15 @@
 #include "ModelPart.h"
 #include "ModelPartList.h"
 #include "Optiondialog.h"
+#include <vtkCylinderSource.h>
+#include <vtkPolyDataMapper.h>
+#include <vtkActor.h>
+#include <vtkProperty.h>
+#include <vtkRenderer.h>
+#include <vtkRenderWindow.h>
+#include <vtkGenericOpenGLRenderWindow.h>
+#include <vtkCamera.h>
+#include <vtkSmartPointer.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -46,6 +55,12 @@ signals:
 
 private:
     Ui::MainWindow *ui;
+
+    // This needs to be added to the MainWindow class definition
+private:
+    vtkSmartPointer<vtkRenderer> renderer;
+    vtkSmartPointer<vtkGenericOpenGLRenderWindow> renderWindow;
+
 
 private:
     ModelPartList* partList;//add for declare a pointer to partlist.
