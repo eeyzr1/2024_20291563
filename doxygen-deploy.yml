@@ -1,0 +1,27 @@
+name: doxygen-deploy
+
+on:
+  push:
+    branches:
+      - master  # 仅当 master 分支有更新时触发
+
+jobs:
+  deploy-documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Doxygen and Graphviz
+        run: sudo apt-get install -y doxygen graphviz
+
+      - name: Run Doxygen
+        working-directory: ./GroupWork
+        run: doxygen Doxyfile
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages                # 部署目标分支
+          folder: GroupWork/docs/html               # Doxygen 输出目录（根据你的 OUTPUT_DIRECTORY）
