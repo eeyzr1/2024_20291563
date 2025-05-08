@@ -24,4 +24,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages                # 部署目标分支
-          folder: docs/html               # Doxygen 输出目录（根据你的 OUTPUT_DIRECTORY）
+          folder: GroupWork/docs/html               # Doxygen 输出目录（根据你的 OUTPUT_DIRECTORY）
